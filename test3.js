@@ -15,7 +15,7 @@ const test3 = () => {
     console.log('stderr: ' + out.stderr.toString('utf8'));
     console.log();
     
-    out = child_process.spawnSync('ls', ['-lhatr']);
+    out = child_process.spawnSync('dd if=/dev/zero of=/dev/shm/fill bs=1k count=1024k');
     console.log('status: ' + out.status);
     console.log('stdout: ' + out.stdout.toString('utf8'));
     if(out.stderr.toString('utf8')){
